@@ -1,2 +1,55 @@
-# NexStore
+# NexStore  
 Storefront for Nexploy apps and Nexterm scripts/snippets
+
+
+
+## 🛍️ What is NexStore?
+
+**NexStore** is the official storefront of the **Nexploy ecosystem**, providing a centralized, user-friendly hub for discovering:
+
+- 📦 **Nexploy Apps**  
+- 🧩 **Nexterm Scripts & Snippets**  
+- ⚙️ **Deployment Tools**  
+- 🔄 **Automation Bundles**
+
+A clean, open-source marketplace designed to expand your Nexterm and Nexploy workflows.
+
+---
+
+## 🚀 Features
+
+- 🔎 Fully searchable catalog  
+- ⚡ One-click installation for supported tools  
+- 📚 Categorized apps, scripts, and automation bundles 
+- 🧑‍💻 Developer-ready publishing support  
+- 🔐 Optional package verification system  
+
+---
+
+## 🧪 Preview
+
+A public preview will be available soon.  
+Follow releases and community channels for updates.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository  
+2. Create a feature branch  
+   ```sh
+   git checkout -b feature/NewFeature
+3. Commit your changes  
+4. Push your branch  
+5. Open a Pull Request 🎉  
+
+---
+
+## 🔗 Useful Links
+
+- **Nexterm Documentation**: https://docs.nexterm.dev  
+- **Report a bug**: https://github.com/gnmyt/Nexstore/issues  
+- **Request a feature**: https://github.com/gnmyt/Nexstore/issues  
+- **Discord community**: https://dc.gnmyt.dev  
