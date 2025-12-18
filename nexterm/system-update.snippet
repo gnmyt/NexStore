@@ -1,0 +1,3 @@
+# @name: System Update
+# @description: Update packages on any Linux distribution
+if command -v apt &> /dev/null; then sudo apt update && sudo apt upgrade -y; elif command -v dnf &> /dev/null; then sudo dnf upgrade -y; elif command -v yum &> /dev/null; then sudo yum update -y; elif command -v pacman &> /dev/null; then sudo pacman -Syu --noconfirm; elif command -v zypper &> /dev/null; then sudo zypper refresh && sudo zypper update -y; elif command -v apk &> /dev/null; then sudo apk update && sudo apk upgrade; else echo "Unknown package manager"; fi
