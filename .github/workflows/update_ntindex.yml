@@ -3,7 +3,7 @@ name: Generate NTINDEX
 on:
   push:
     branches: [main]
-    paths: ['nexterm/scripts/**', 'nexterm/snippets/**']
+    paths: ['nexterm/scripts/**', 'nexterm/snippets/**', 'nexterm/themes/**']
   workflow_dispatch:
 
 permissions:
@@ -29,6 +29,14 @@ jobs:
           echo "" >> NTINDEX
           echo "# Snippets" >> NTINDEX
           for file in snippets/*; do
+            if [ -f "$file" ]; then
+              hash=$(md5sum "$file" | cut -d' ' -f1)
+              echo "${file}@${hash}" >> NTINDEX
+            fi
+          done
+          echo "" >> NTINDEX
+          echo "# Themes" >> NTINDEX
+          for file in themes/*.theme.css; do
             if [ -f "$file" ]; then
               hash=$(md5sum "$file" | cut -d' ' -f1)
               echo "${file}@${hash}" >> NTINDEX

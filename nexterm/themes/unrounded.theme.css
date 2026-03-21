@@ -1,0 +1,12 @@
+/* @name: Unrounded */
+/* @description: Removes all border-radius for a sharp */
+
+:root {
+    --unrounded-radius: 0px !important;
+}
+
+*,
+*::before,
+*::after {
+    border-radius: 0 !important;
+}
