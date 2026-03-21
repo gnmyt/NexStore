@@ -4,3 +4,8 @@ scripts/10_largest_files.sh@416971fdb24f74464841958621d4940c
 
 # Snippets
 snippets/system-update.snippet@8dad141f6046c825e06b201239a742cc
+
+# Themes
+themes/catppuccin.theme.css@8eebe569775388f072854602f4392b4b
+themes/nord.theme.css@e68fd4ca2ce192353fd270e56c8a999f
+themes/unrounded.theme.css@36a0baad37b24a4fe4ab7915e9d1d3f0
