@@ -4,7 +4,7 @@ const { join } = require("path");
 
 const APPS_DIR = join(__dirname, "..", "nexploy");
 const DIST_DIR = join(APPS_DIR, "dist");
-const IGNORE = ["build.js", "auto-update.js", "update.js.template", "dist", "npindex", ".git", ".DS_Store", "NPIndex"];
+const IGNORE = ["build.js", "auto-update.js", "update.js.template", "dist", "npindex", ".git", ".DS_Store", "NPINDEX"];
 
 const parseManifest = content => Object.fromEntries(
     content.split("\n").map(l => l.match(/^(\w+):\s*["']?([^"'\n]+)["']?/)).filter(Boolean).map(m => [m[1], m[2].trim()])
@@ -42,6 +42,6 @@ for (const letter of readdirSync(APPS_DIR)) {
 const categories = Object.keys(cats).sort().map(n => ({ name: n, count: cats[n].length, slug: slugify(n) }));
 writeFileSync(join(DIST_DIR, "categories.json"), JSON.stringify({ generatedAt: new Date().toISOString(), categories }, null, 2));
 Object.entries(cats).forEach(([n, apps]) => writeFileSync(join(DIST_DIR, "categories", `${slugify(n)}.json`), JSON.stringify({ name: n, apps: apps.sort((a, b) => a.name.localeCompare(b.name)) }, null, 2)));
-writeFileSync(join(DIST_DIR, "NPIndex"), "#!NPINDEX1 official\n\n" + index.join("\n") + "\n");
+writeFileSync(join(DIST_DIR, "NPINDEX"), "#!NPINDEX1 official\n\n" + index.join("\n") + "\n");
 
-console.log(`\nNPIndex: ${index.length} apps | categories.json: ${categories.length} categories`);
+console.log(`\nNPINDEX: ${index.length} apps | categories.json: ${categories.length} categories`);
