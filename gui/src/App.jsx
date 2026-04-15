@@ -27,7 +27,7 @@ const App = () => {
     const [generatedAt, setGeneratedAt] = useState(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [appsCache, setAppsCache] = useState({});
-    const baseUrl = import.meta.env.BASE_URL;
+    const baseUrl = "./";
 
     useEffect(() => {
         loadCategoriesIndex(baseUrl).then((data) => {

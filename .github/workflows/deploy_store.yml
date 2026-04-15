@@ -36,8 +36,6 @@ jobs:
           npm install
 
       - name: Build gui
-        env:
-          BASE_URL: /
         run: |
           cd gui
           npm run build
@@ -45,6 +43,7 @@ jobs:
       - name: Prepare deployment
         run: |
           mkdir -p deploy
+          touch deploy/.nojekyll
           cp -r gui/dist/* deploy/
           cp -r nexploy/dist/* deploy/
           mkdir -p deploy/logos
