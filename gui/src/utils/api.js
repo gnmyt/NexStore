@@ -1,0 +1,11 @@
+export const loadCategoriesIndex = async (baseUrl) => {
+    const res = await fetch(`${baseUrl}categories.json`);
+    if (!res.ok) throw new Error('Failed to load categories index');
+    return res.json();
+};
+
+export const loadCategoryApps = async (baseUrl, slug) => {
+    const res = await fetch(`${baseUrl}categories/${slug}.json`);
+    if (!res.ok) throw new Error(`Failed to load category: ${slug}`);
+    return res.json();
+};
