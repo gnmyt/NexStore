@@ -1,0 +1,9 @@
+services:
+  nexterm:
+    image: nexterm/aio:1.2.0-BETA
+    network_mode: host
+    restart: always
+    environment:
+      - ENCRYPTION_KEY=e0ddadbecd3f64937ce7b879cf26d66ae62fdd1b4d47054af3081b06ab58ba92
+    volumes:
+      - ./data:/app/data

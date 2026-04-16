@@ -1,0 +1,10 @@
+type: docker
+name: Nexterm
+version: 1.2.0
+description: Connect to your servers via TELNMET, SSH, VNC & RDP.
+category: Networking
+mainService: nexterm
+gallery:
+  - gallery/connections.png
+  - gallery/servers.png
+  - gallery/settings.png
