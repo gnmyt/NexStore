@@ -64,6 +64,44 @@
         color: colors.$subtext
         font-weight: 500
 
+  .sidebar-sections
+    display: flex
+    gap: 0.375rem
+    padding: 0.75rem
+    border-bottom: 1px solid colors.$dark-gray
+
+    .section-btn
+      flex: 1
+      display: flex
+      align-items: center
+      justify-content: center
+      gap: 0.5rem
+      padding: 0.5rem 0.75rem
+      border: 1px solid colors.$dark-gray
+      border-radius: 0.5rem
+      background: transparent
+      cursor: pointer
+      transition: all 0.15s
+      font-size: 0.8rem
+      font-weight: 600
+      color: colors.$subtext
+
+      .section-icon
+        width: 1.125rem
+        height: 1.125rem
+
+      &:hover
+        background-color: colors.$background
+        color: colors.$white
+
+      &.active
+        background-color: colors.$primary-opacity
+        border-color: colors.$primary
+        color: colors.$white
+
+        .section-icon
+          color: colors.$primary
+
   .sidebar-nav
     flex: 1
     overflow-y: auto
@@ -148,6 +186,7 @@
   align-items: center
   justify-content: space-between
   gap: 1rem
+  flex-wrap: wrap
 
   @media (max-width: 900px)
     display: flex
@@ -164,6 +203,39 @@
       width: 1.5rem
       height: 1.5rem
       color: colors.$primary
+
+  .mobile-sections
+    display: flex
+    gap: 0.25rem
+
+    .mobile-section-btn
+      display: flex
+      align-items: center
+      gap: 0.375rem
+      padding: 0.375rem 0.625rem
+      border: 1px solid colors.$dark-gray
+      border-radius: 0.375rem
+      background: transparent
+      cursor: pointer
+      font-size: 0.75rem
+      font-weight: 600
+      color: colors.$subtext
+      transition: all 0.15s
+
+      svg
+        width: 1rem
+        height: 1rem
+
+      &:hover
+        color: colors.$white
+
+      &.active
+        background-color: colors.$primary-opacity
+        border-color: colors.$primary
+        color: colors.$white
+
+        svg
+          color: colors.$primary
 
   .category-dropdown
     position: relative

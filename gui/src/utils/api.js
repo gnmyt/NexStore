@@ -9,3 +9,9 @@ export const loadCategoryApps = async (baseUrl, slug) => {
     if (!res.ok) throw new Error(`Failed to load category: ${slug}`);
     return res.json();
 };
+
+export const loadNextermData = async (baseUrl) => {
+    const res = await fetch(`${baseUrl}nexterm.json`);
+    if (!res.ok) throw new Error('Failed to load Nexterm data');
+    return res.json();
+};
