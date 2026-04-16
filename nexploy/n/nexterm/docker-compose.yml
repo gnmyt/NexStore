@@ -1,6 +1,6 @@
 services:
   nexterm:
-    image: nexterm/aio:1.2.0-BETA
+    image: germannewsmaker/nexterm:1.2.0-BETA
     network_mode: host
     restart: always
     environment:
