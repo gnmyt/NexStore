@@ -7,7 +7,7 @@ import "./styles.sass";
 
 const STORAGE_KEY = "nexploy_server_url";
 
-export const ServerUrlDialog = ({ open, onClose, app }) => {
+export const ServerUrlDialog = ({ open, onClose, app, sourceName }) => {
     const [serverUrl, setServerUrl] = useState("");
 
     useEffect(() => { const saved = localStorage.getItem(STORAGE_KEY); if (saved) setServerUrl(saved); }, []);
@@ -16,7 +16,7 @@ export const ServerUrlDialog = ({ open, onClose, app }) => {
         if (!serverUrl) return;
         localStorage.setItem(STORAGE_KEY, serverUrl);
         const baseUrl = serverUrl.endsWith('/') ? serverUrl.slice(0, -1) : serverUrl;
-        window.open(`${baseUrl}/apps/${app.id}`, '_blank');
+        window.open(`${baseUrl}/apps/${sourceName}/${app.id}`, '_blank');
         onClose();
     };
 

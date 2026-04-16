@@ -41,7 +41,12 @@ const buildApp = (appDir, appId, letter) => {
     return { id: appId, letter, version, name: manifest.name || appId, description: manifest.description || "", category: manifest.category || "Other", type: manifest.type || "unknown", hasLogo: existsSync(join(appDir, "logo.png")) };
 };
 
-console.log("Building apps...\n");
+const npindexPath = join(APPS_DIR, "NPINDEX");
+const npindexContent = existsSync(npindexPath) ? readFileSync(npindexPath, "utf8") : "";
+const npindexHeader = npindexContent.match(/^#!NPINDEX1\s+(\S+)/);
+const sourceName = npindexHeader ? npindexHeader[1] : "official";
+
+console.log(`Building apps (source: ${sourceName})...\n`);
 if (!existsSync(DIST_DIR)) mkdirSync(DIST_DIR);
 if (!existsSync(join(DIST_DIR, "categories"))) mkdirSync(join(DIST_DIR, "categories"));
 
@@ -61,7 +66,7 @@ for (const letter of readdirSync(APPS_DIR)) {
 const categories = Object.keys(cats).sort().map(n => ({ name: n, count: cats[n].length, slug: slugify(n) }));
 writeFileSync(join(DIST_DIR, "categories.json"), JSON.stringify({ generatedAt: new Date().toISOString(), categories }, null, 2));
 Object.entries(cats).forEach(([n, apps]) => writeFileSync(join(DIST_DIR, "categories", `${slugify(n)}.json`), JSON.stringify({ name: n, apps: apps.sort((a, b) => a.name.localeCompare(b.name)) }, null, 2)));
-writeFileSync(join(DIST_DIR, "NPINDEX"), "#!NPINDEX1 official\n\n" + index.join("\n") + "\n");
+writeFileSync(join(DIST_DIR, "NPINDEX"), `#!NPINDEX1 ${sourceName}\n\n` + index.join("\n") + "\n");
 
 console.log(`\nNPINDEX: ${index.length} apps | categories.json: ${categories.length} categories`);
 

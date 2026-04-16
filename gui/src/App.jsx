@@ -9,7 +9,7 @@ import AppCard from "./components/AppCard";
 import NextermCard from "./components/NextermCard";
 import Loader from "./components/Loader";
 import ServerUrlDialog from "./components/ServerUrlDialog";
-import { loadCategoriesIndex, loadCategoryApps, loadNextermData } from "./utils/api";
+import { loadCategoriesIndex, loadCategoryApps, loadNextermData, loadSourceName } from "./utils/api";
 
 const CATEGORY_ICONS = { scripts: mdiScriptText, networking: mdiLan, media: mdiPlayCircle, cloud: mdiCloud, development: mdiCodeBraces, utilities: mdiWrench, gaming: mdiGamepadVariant, all: mdiApps, other: mdiDotsHorizontal };
 const NEXTERM_ICONS = { scripts: mdiScriptText, snippets: mdiCodeBraces, themes: mdiPalette };
@@ -36,6 +36,7 @@ const App = () => {
     const [generatedAt, setGeneratedAt] = useState(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [appsCache, setAppsCache] = useState({});
+    const [sourceName, setSourceName] = useState("official");
 
     const [nextermData, setNextermData] = useState(null);
     const [nextermCategory, setNextermCategory] = useState(null);
@@ -45,6 +46,7 @@ const App = () => {
     const baseUrl = "./";
 
     useEffect(() => {
+        loadSourceName(baseUrl).then(setSourceName).catch(() => {});
         loadCategoriesIndex(baseUrl).then((data) => {
             setCategories(data.categories);
             setGeneratedAt(data.generatedAt);
@@ -248,7 +250,7 @@ const App = () => {
                     </div>
                 </footer>
             </main>
-            <ServerUrlDialog open={dialogOpen} onClose={() => { setDialogOpen(false); setSelectedApp(null); }} app={selectedApp} />
+            <ServerUrlDialog open={dialogOpen} onClose={() => { setDialogOpen(false); setSelectedApp(null); }} app={selectedApp} sourceName={sourceName} />
         </div>
     );
 };
