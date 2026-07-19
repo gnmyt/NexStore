@@ -1,0 +1,302 @@
+/* @name: Amethyst */
+/* @description: Violet-navy theme that adds round tabs */
+
+:root[data-theme="dark"] {
+    --background: #171825;
+    --terminal: #101120;
+    --lighter-background: #1C1C2B;
+    --dialog-background: rgba(16, 17, 32, 0.6);
+    --gray-full: #26263A;
+    --darker-gray: rgba(38, 38, 58, 0.7);
+    --dark-gray: rgba(255, 255, 255, 0.045);
+    --gray: rgba(255, 255, 255, 0.09);
+    --light-gray: #E9ECF2;
+    --accent-color: #8F6FF2;
+    --primary: #8F6FF2;
+    --primary-opacity: rgba(143, 111, 242, 0.18);
+    --error: #E5545A;
+    --error-opacity: rgba(229, 84, 90, 0.2);
+    --success: #3DBF74;
+    --success-opacity: rgba(61, 191, 116, 0.2);
+    --warning: #E8A33D;
+    --warning-opacity: rgba(232, 163, 61, 0.2);
+    --white: #FFFFFF;
+    --subtext: #8E8CA8;
+    --text: #E9ECF2;
+}
+
+:root[data-theme="oled"] {
+    --background: #000000;
+    --terminal: #000000;
+    --lighter-background: #0B0A14;
+    --dialog-background: rgba(0, 0, 0, 0.7);
+    --gray-full: #151420;
+    --darker-gray: rgba(17, 16, 30, 0.8);
+    --dark-gray: rgba(255, 255, 255, 0.045);
+    --gray: rgba(255, 255, 255, 0.09);
+    --light-gray: #E9ECF2;
+    --accent-color: #9C80F7;
+    --primary: #9C80F7;
+    --primary-opacity: rgba(156, 128, 247, 0.18);
+    --error: #E5545A;
+    --error-opacity: rgba(229, 84, 90, 0.2);
+    --success: #3DBF74;
+    --success-opacity: rgba(61, 191, 116, 0.2);
+    --warning: #E8A33D;
+    --warning-opacity: rgba(232, 163, 61, 0.2);
+    --white: #FFFFFF;
+    --subtext: #817F9B;
+    --text: #E9ECF2;
+}
+
+:root[data-theme="light"] {
+    --background: #FFFFFF;
+    --terminal: #F6F5FA;
+    --lighter-background: #F6F5FA;
+    --dialog-background: rgba(246, 245, 250, 0.5);
+    --gray-full: #E8E6F0;
+    --darker-gray: rgba(232, 230, 240, 0.9);
+    --dark-gray: rgba(23, 24, 37, 0.045);
+    --gray: rgba(23, 24, 37, 0.09);
+    --light-gray: #171825;
+    --accent-color: #6D42D9;
+    --primary: #6D42D9;
+    --primary-opacity: rgba(109, 66, 217, 0.14);
+    --error: #CF3D43;
+    --error-opacity: rgba(207, 61, 67, 0.14);
+    --success: #1E9A5A;
+    --success-opacity: rgba(30, 154, 90, 0.14);
+    --warning: #B87514;
+    --warning-opacity: rgba(184, 117, 20, 0.14);
+    --white: #171825;
+    --subtext: #6A667D;
+    --text: #171825;
+}
+
+/* ---------- Server tabs ---------- */
+
+.server-tabs {
+    padding: 0.4rem 0.5rem;
+}
+
+.server-tabs .tabs {
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.server-tabs .tabs .server-tab {
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    padding: 0.2rem 0.75rem;
+    gap: 0.5rem;
+    color: var(--subtext);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.server-tabs .tabs .server-tab h2 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.server-tabs .tabs .server-tab .progress-circle,
+.server-tabs .tabs .server-tab .progress-circle svg {
+    width: 20px;
+    height: 20px;
+}
+
+.server-tabs .tabs .server-tab .progress-circle .progress-icon,
+.server-tabs .tabs .server-tab .progress-circle.no-progress .progress-icon {
+    width: 1.05rem;
+    height: 1.05rem;
+}
+
+.server-tabs .tabs .server-tab .tab-actions .close-btn {
+    border-radius: 6px;
+}
+
+.server-tabs .tabs .server-tab:hover {
+    background-color: var(--dark-gray);
+    border: none;
+    color: var(--text);
+}
+
+.server-tabs .tabs .server-tab.server-tab-active,
+.server-tabs .tabs .server-tab.server-tab-active:hover {
+    background-color: var(--gray-full);
+    border: none;
+    color: var(--text);
+    box-shadow: var(--shadow-sm);
+}
+
+.server-tabs .tabs .server-tab.server-tab-active .progress-icon {
+    color: var(--primary);
+}
+
+.server-tabs .tabs .server-tab.drop-target {
+    border: none;
+    background-color: var(--gray);
+    box-shadow: inset 0 0 0 2px var(--primary);
+}
+
+.server-tabs .tabs .server-tab.dragging {
+    transform: none;
+    box-shadow: var(--shadow-md);
+}
+
+.server-tabs .tabs-container .scroll-indicator svg {
+    border-radius: 8px;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+    background-color: var(--background);
+    border-right: 1px solid var(--dark-gray);
+}
+
+.sidebar nav {
+    gap: 0.5rem;
+}
+
+.sidebar nav .nav-item,
+.sidebar .user-btn {
+    width: 3.25rem;
+    height: 3.25rem;
+    border: none;
+    border-radius: 12px;
+    color: var(--subtext);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sidebar nav .nav-item svg,
+.sidebar .user-btn svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.sidebar nav .nav-item:hover:not(.nav-item-disabled),
+.sidebar .user-btn:hover {
+    background-color: var(--dark-gray);
+    color: var(--text);
+}
+
+.sidebar nav .nav-item.nav-item-active,
+.sidebar .user-btn.active {
+    background-color: var(--gray-full);
+    border: none;
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.sidebar .user-menu {
+    background-color: var(--gray-full);
+    border: 1px solid var(--gray);
+    border-radius: 12px;
+}
+
+.sidebar .user-menu-item {
+    border-radius: 8px;
+}
+
+.sidebar .user-menu-item.support:hover,
+.sidebar .user-menu-item.add-server:hover {
+    background-color: var(--gray);
+    color: var(--primary);
+}
+
+/* ---------- Server list ---------- */
+
+.server-list {
+    background-color: var(--background);
+    border-right: 1px solid var(--dark-gray);
+}
+
+.server-list .search-container .tag-filter-button {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--dark-gray);
+    color: var(--subtext);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.server-list .search-container .tag-filter-button:hover {
+    background-color: var(--gray);
+    color: var(--text);
+}
+
+.server-list .search-container .tag-filter-button.active {
+    background-color: var(--gray-full);
+    border: none;
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.server-list .search-container .tag-filter-button .tag-count {
+    color: var(--background);
+    font-weight: 700;
+}
+
+.server-list .servers::-webkit-scrollbar-thumb {
+    background: var(--gray);
+}
+
+/* ---------- Server entries ---------- */
+
+.server-object {
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 0.5rem;
+    color: var(--subtext);
+    font-weight: 500;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.server-object:hover {
+    border: none;
+    border-radius: 8px;
+    background-color: var(--dark-gray);
+    color: var(--text);
+}
+
+.server-object:active {
+    background-color: var(--gray-full);
+    border: none;
+    color: var(--text);
+}
+
+.server-object .system-icon,
+.server-object .pve-icon {
+    border-radius: 6px;
+}
+
+.server-object .system-icon svg,
+.server-object .pve-icon svg {
+    color: var(--background);
+}
+
+.server-object .system-icon-offline,
+.server-object .pve-icon-offline {
+    background-color: var(--gray-full);
+    opacity: 1;
+}
+
+.server-object .system-icon-offline svg,
+.server-object .pve-icon-offline svg {
+    color: var(--subtext);
+}
+
+.server-object .hibernation-indicator {
+    background-color: var(--gray-full);
+    border: none;
+    border-radius: 6px;
+    padding: 3px 7px;
+}
+
+.server-is-over {
+    border: none;
+    border-radius: 8px;
+    background-color: var(--gray);
+    box-shadow: inset 0 0 0 2px var(--primary);
+}
